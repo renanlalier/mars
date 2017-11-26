@@ -1,0 +1,15 @@
+server:
+  port: 8081
+  context-path: /rest
+  
+area:
+  maxX: 5
+  maxY: 5
+  
+robot:
+  position:
+    initialX: 0
+    initialY: 0
+  
+  coordinate:
+    initial: N

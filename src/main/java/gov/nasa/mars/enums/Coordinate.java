@@ -7,6 +7,13 @@ import gov.nasa.mars.exception.custom.PositionException;
 import gov.nasa.mars.interfaces.ICoordinate;
 import gov.nasa.mars.usecase.ValidationUseCase;
 
+/**
+ * 
+ * Enum responsável por manter todas as constantes referente as coordenadas para as quais o robô pode se deslocar
+ * @author Renan Lalier <relalier@gmail.com>
+ * @since 26/11/2017
+ *
+ */
 public enum Coordinate implements ICoordinate {
 
 	N {

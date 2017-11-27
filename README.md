@@ -1,9 +1,9 @@
 # mars
 
-# Objetivo:
+### Objetivo:
 O objetivo desse desafio é demonstrar sua experiência e conhecimento como desenvolvedor, assim saberemos como você pensa e como resolve problemas na vida real.
 
-# O Problema:
+### O Problema:
 Um time de robôs devem ser colocados pela NASA para explorar um terreno em Marte.
 Esse terreno, que é retangular, precisa ser navegado pelos robôs de tal forma que suas câmeras acopladas possam obter uma visão completa da região, enviando essas imagens novamente para a Terra.
 
@@ -15,7 +15,7 @@ Exemplo: Se o robô está na posição (0,0,N), o comando "MML" fará ele chegar
 
 Escreva um programa que permita aos engenheiros da NASA enviar comandos para o Robô e saber onde ele se encontra. Os engenheiros irão rodar testes no seu software para garantir que ele se comporta da forma esperada, antes de enviar o Robô para marte.
 
-# Requisitos do desafio:
+### Requisitos do desafio:
 
 O terreno deverá ser iniciado com 5x5 posições;
 O robô inicia na coordenada (0,0,N);
@@ -23,7 +23,7 @@ Deverá ser possível enviar um comando para o Robô que me retorne a posição 
 O Robô não pode se movimentar para fora da área especificada;
 Não deve guardar estado do robô para consulta posterior;
 
-# Alguns cenários de teste:
+### Alguns cenários de teste:
 Movimento com rotações para direita:
 curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM
 Saída esperada: (2, 0, S)
@@ -47,3 +47,30 @@ O projeto deverá ser compilado utilizando o Maven;
 Deverão ser utilizadas apenas as biblioteca do SpringBoot e JUnit;
 O desafio será executado como uma aplicação SpringBoot;
 A interface de comunicação com o robô é REST;
+
+### Ao vivo
+
+O serviço REST está hospedado no [Heroku](heroku.com) e disponível através [desse endereço](https://mars-nasa.herokuapp.com) e possui os seguindos *endpoints*:
+ * **GET /rest** root
+ * **GET /rest/mars/{comando}** comando a ser processado pelo robô
+
+### Construído com
+
+  * [Java](http://www.oracle.com/technetwork/java/javase/overview/java8-2100321.html) versão 8.
+  * [Spring Boot](https://projects.spring.io/spring-boot/) versão 1.5.8
+  * [Maven](https://maven.apache.org/)
+  * [JUnit](http://junit.org/junit5/) versão 4
+
+Antes de clonar o repositório, recomendo certificar-se de que todas as dependências estão instaladas.
+
+Foi utilizado o pattern Strategy visando a eliminição de aninhamento condicional e alto acoplamento. Dessa forma a arquitetura se torna escalável e reaproveitável facilitando a manutenibilidade e evolução da aplicação.
+
+#### Executando os testes unitários
+ 
+ Para executar os testes unitários via Maven, execute `mvn test`.
+ 
+### Build
+
+Para realizar o build da aplicação via Maven, execute `mvn clean install`
+
+*Construído com Eclipse Mars*

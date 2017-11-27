@@ -4,6 +4,13 @@ import java.math.BigDecimal;
 
 import gov.nasa.mars.enums.Coordinate;
 
+/**
+ * 
+ * Classe responsável pelos dados de dominio do robô
+ * @author Renan Lalier <relalier@gmail.com>
+ * @since 26/11/2017
+ *
+ */
 public class CoordinateRobot {
 
 	private BigDecimal positionX;

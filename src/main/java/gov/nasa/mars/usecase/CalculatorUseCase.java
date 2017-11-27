@@ -13,7 +13,7 @@ import gov.nasa.mars.interfaces.ICalculator;
 
 /**
  * 
- * Classe responsável por manter os métodos de entrada para calculo dos comandos
+ * Classe responsável por manter os métodos de comando de entrada para calculo da posição do robô
  * @author Renan Lalier <relalier@gmail.com>
  * @since 26/11/2017
  *

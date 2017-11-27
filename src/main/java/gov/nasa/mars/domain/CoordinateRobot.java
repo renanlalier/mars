@@ -5,13 +5,13 @@ import java.math.BigDecimal;
 import gov.nasa.mars.enums.Coordinate;
 
 public class CoordinateRobot {
-	
+
 	private BigDecimal positionX;
-	
+
 	private BigDecimal positionY;
-	
+
 	private Coordinate coordinate;
-	
+
 	public CoordinateRobot(BigDecimal positionX, BigDecimal positionY, Coordinate coordinate) {
 		this.positionX = positionX;
 		this.positionY = positionY;
@@ -41,11 +41,10 @@ public class CoordinateRobot {
 	public void setCoordinate(Coordinate coordinate) {
 		this.coordinate = coordinate;
 	}
-	
-	public String formattedCoordinate(){
-		return "("  + positionX + "," + positionY + "," + coordinate + ")";
+
+	@Override
+	public String toString() {
+		return "(" + positionX + "," + positionY + "," + coordinate + ")";
 	}
-	
-	
 
 }

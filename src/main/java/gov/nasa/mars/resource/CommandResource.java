@@ -1,7 +1,5 @@
 package gov.nasa.mars.resource;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,7 @@ public class CommandResource {
 
 	@RequestMapping(path="/mars/{command}", method = RequestMethod.GET)
 	public String sendCommand(@PathVariable("command") String command){ 
-		return calculatorUseCase.calculatePosition(Optional.of(command)).formattedCoordinate();
+		return calculatorUseCase.calculatePosition(command);
 	}
 	
 }

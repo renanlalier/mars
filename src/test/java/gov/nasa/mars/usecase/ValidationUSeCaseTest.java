@@ -14,7 +14,6 @@ import gov.nasa.mars.exception.custom.PositionException;
 import gov.nasa.mars.usecase.ValidationUseCase;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 import org.junit.Assert;
 
@@ -27,14 +26,14 @@ public class ValidationUSeCaseTest {
 
 	@Test
 	public void executeTestCommandInvalid() {
-		Assert.assertFalse(validationUseCase.validateCommand(Optional.of("AAA")));
+		Assert.assertFalse(validationUseCase.validateCommand("AAA"));
 	}
 
 	@Test(expected = PositionException.class)
 	public void executeTestMotionInvalidOne() {
 
 		final String command = "MLMM";
-		getCoordinateRobot(Optional.of(command));
+		getCoordinateRobot(command);
 
 	}
 	
@@ -42,7 +41,7 @@ public class ValidationUSeCaseTest {
 	public void executeTestMotionInvalidTwo(){
 		
 		final String command = "MMMMMMMMMMMMMMMMMMMMMMMM";
-		getCoordinateRobot(Optional.of(command));
+		getCoordinateRobot(command);
 		
 	}
 
@@ -50,26 +49,26 @@ public class ValidationUSeCaseTest {
 	public void executeTestMotionLeft() {
 
 		final String command = "MML";
-		Assert.assertEquals("(0,2,W)", getCoordinateRobot(Optional.of(command)));
+		Assert.assertEquals("(0,2,W)", getCoordinateRobot(command));
 	}
 
 	@Test
 	public void executeTestMotionRight() {
 
 		final String command = "MMRMMRMM";
-		Assert.assertEquals("(2,0,S)", getCoordinateRobot(Optional.of(command)));
+		Assert.assertEquals("(2,0,S)", getCoordinateRobot(command));
 
 	}
 
-	private String getCoordinateRobot(Optional<String> command) {
+	private String getCoordinateRobot(String command) {
 
 		CoordinateRobot coordinate = new CoordinateRobot(new BigDecimal(0), new BigDecimal(0), Coordinate.N);
-		command.get().chars().forEach(c -> {
+		command.chars().forEach(c -> {
 			Command com = Command.valueOf(String.valueOf((char) c));
 			com.executeCommand(coordinate, validationUseCase);
 		});
 
-		return coordinate.formattedCoordinate();
+		return coordinate.toString();
 	}
 
 }

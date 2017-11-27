@@ -1,7 +1,6 @@
 package gov.nasa.mars.usecase;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,17 +26,17 @@ public class CalculatorUseCase implements ICalculator {
 	private ValidationUseCase validationUseCase;
 
 	@Override
-	public CoordinateRobot calculatePosition(Optional<String> command) {
+	public String calculatePosition(String command) {
 
 		if (validationUseCase.validateCommand(command)) {
 			
 			CoordinateRobot coordinate = new CoordinateRobot(posInitialX, posInitialY, coordInitial);
-			command.get().chars().forEach(c -> {
+			command.chars().forEach(c -> {
 				Command com = Command.valueOf(String.valueOf((char) c));
 				com.executeCommand(coordinate, validationUseCase);
 			});
 
-			return coordinate;
+			return coordinate.toString();
 		}
 		
 		throw new CommandException();

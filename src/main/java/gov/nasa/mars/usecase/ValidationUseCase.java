@@ -1,7 +1,6 @@
 package gov.nasa.mars.usecase;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,8 +25,8 @@ public class ValidationUseCase implements IValidate {
 	@Value("${area.maxY}")
 	private BigDecimal maxAreaY;
 
-	public Boolean validateCommand(Optional<String> command) {
-		return command.isPresent() && command.get().chars().allMatch(c -> getCommands().contains(String.valueOf((char)c)));
+	public Boolean validateCommand(String command) {
+		return command != null && command.chars().allMatch(c -> getCommands().contains(String.valueOf((char)c)));
 	}
 	
 	public Boolean validateMotion(BigDecimal positionX, BigDecimal positionY){

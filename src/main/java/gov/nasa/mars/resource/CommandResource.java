@@ -26,7 +26,7 @@ public class CommandResource {
 	 * @param command paramêtro reacebido referente ao comando a ser executado
 	 * @return retorna posição atual do robô após execução do comando
 	 */
-	@RequestMapping(path="/mars/{command}", method = RequestMethod.GET)
+	@RequestMapping(path="/mars/{command}", method = RequestMethod.POST)
 	public String sendCommand(@PathVariable("command") String command){ 
 		return calculatorUseCase.calculatePosition(command);
 	}

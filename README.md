@@ -52,8 +52,7 @@ A interface de comunicação com o robô é REST;
 ### Ao vivo
 
 O serviço REST está hospedado no [Heroku](heroku.com) e disponível através [desse endereço](https://mars-nasa.herokuapp.com) e possui os seguindos *endpoints*:
- * **GET /rest** root
- * **GET /rest/mars/{comando}** comando a ser processado pelo robô
+ * **POST /rest/mars/{comando}** comando a ser processado pelo robô
 
 ### Construído com
 
